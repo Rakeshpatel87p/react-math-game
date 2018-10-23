@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MathQuestion from './MathQuestion.js';
+import UserScore from './UserScore.js';
 
 const value1 = Math.floor(Math.random() * 100);
 const value2 = Math.floor(Math.random() * 100);
@@ -10,6 +12,17 @@ const numQuestions = 0;
 const numCorrect = 0;
 
 class App extends Component {
+  
+  state = {
+  	userGameData: []
+  }
+	generateNewGame = (gameData) => {
+    	//user response equal that of correct answer
+      	//push userAnsweredCorrectly: True/False
+      
+      	//Create new game
+      	
+    }
   render() {
     return (
       <div className="App">
@@ -20,12 +33,12 @@ class App extends Component {
         <div className="game">
           <h2>Mental Math</h2>
           <div className="equation">
-            <p className="text">{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
+			<MathQuestion gameData={this.state.userGameData}/>
           </div>
           <button>True</button>
           <button>False</button>
           <p className="text">
-            Your Score: {numCorrect}/{numQuestions}
+            <UserScore />
           </p>
         </div>
       </div>
