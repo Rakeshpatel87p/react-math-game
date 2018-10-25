@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MathQuestion from './MathQuestion.js';
-import UserScore from './UserScore.js';
 
-const value1 = Math.floor(Math.random() * 100);
-const value2 = Math.floor(Math.random() * 100);
-const value3 = Math.floor(Math.random() * 100);
-const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;
+
 const numQuestions = 0;
 const numCorrect = 0;
 
@@ -16,14 +12,23 @@ class App extends Component {
   state = {
   	userGameData: []
   }
-	generateNewGame = (gameData) => {
-    	//user response equal that of correct answer
-      	//push userAnsweredCorrectly: True/False
-      
-      	//Create new game
-      	
-    }
-  render() {
+  generateNewGame = (userResponse) => {
+      const value1 = Math.floor(Math.random() * 100);
+      const value2 = Math.floor(Math.random() * 100);
+      const value3 = Math.floor(Math.random() * 100);
+      const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;	
+      console.log({values: [value1, value2, value3, proposedAnswer] , correctAnswer: false});
+      console.log(userResponse);
+      //record user answer and calculate # answered correctly/incorrectly
+      this.setState((currentState) => ({
+      	//userGameData.push()
+      }));
+      return (
+        {values: [value1, value2, value3, proposedAnswer] , correctAnswer: false}
+      )  	
+   }
+  
+render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -32,14 +37,10 @@ class App extends Component {
         </header>
         <div className="game">
           <h2>Mental Math</h2>
-          <div className="equation">
-			<MathQuestion gameData={this.state.userGameData}/>
-          </div>
-          <button>True</button>
-          <button>False</button>
-          <p className="text">
-            <UserScore />
-          </p>
+    	  <MathQuestion 
+    		gameInfo={this.generateNewGame}
+			userScore = {this.state.userGameData}
+		  />
         </div>
       </div>
     );

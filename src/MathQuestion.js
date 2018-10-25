@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+//import UserScore from './UserScore.js';
 
 function MathQuestion(props) {
-	//<p className="text">{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
-}
+	
+  	return (
+    	<div className="equation">
+      	{console.log(props.gameinfo)}
+		<button onClick = {() => props.gameInfo(true)}>True</button>
+        <button onClick = {() => props.gameInfo(false)}>False</button>
+        <p className="text">
+        </p>
+		</div>
+    )
+}	
 
 export default MathQuestion;
