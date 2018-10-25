@@ -5,7 +5,6 @@ function MathQuestion(props) {
 	
   	return (
     	<div className="equation">
-      	{console.log(props.gameinfo)}
 		<button onClick = {() => props.gameInfo(true)}>True</button>
         <button onClick = {() => props.gameInfo(false)}>False</button>
         <p className="text">

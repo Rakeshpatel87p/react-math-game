@@ -10,23 +10,20 @@ const numCorrect = 0;
 class App extends Component {
   
   state = {
-  	userGameData: []
-  }
-  generateNewGame = (userResponse) => {
-      const value1 = Math.floor(Math.random() * 100);
-      const value2 = Math.floor(Math.random() * 100);
-      const value3 = Math.floor(Math.random() * 100);
-      const proposedAnswer = Math.floor(Math.random() * 3) + value1 + value2 + value3;	
-      console.log({values: [value1, value2, value3, proposedAnswer] , correctAnswer: false});
-      console.log(userResponse);
-      //record user answer and calculate # answered correctly/incorrectly
-      this.setState((currentState) => ({
-      	//userGameData.push()
-      }));
-      return (
-        {values: [value1, value2, value3, proposedAnswer] , correctAnswer: false}
-      )  	
-   }
+  	correctAnswer: 0,
+    numQuestions: 0,
+  };
+
+handleAnswer = answerWasCorrect => {
+	if (answerWasCorrect) {
+    	this.setState(currState => ({
+        	correctAnswer: currState.correctAnswer + 1,
+        }))
+    }
+    this.setState(currState => ({
+    	numQuestions: currState.numQuestions + 1,
+    }));
+};
   
 render() {
     return (
