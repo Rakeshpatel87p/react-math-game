@@ -30,9 +30,12 @@ class MathQuestion extends Component {
       }));
   	};
 
-	handleAnswer = event => {
+	handleAnswer = (event) => {
     	const newValuesArray = this.makeNewQuestion();
       	this.updateState(newValuesArray);
+      	this.evaluateAnswer(event);
+      	consoe.log(t)
+      	//console.log(`here is the ${userAnswer}`);
     }
 
 	evaluateAnswer(givenAnswer) {
@@ -55,7 +58,7 @@ class MathQuestion extends Component {
                       {`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}
                   </p>
         		</div>
-				<button onClick={this.handleAnswer} name="true"> True </button>
+				<button name="true" onClick={this.handleAnswer}> True </button>
         		<button name="false" onClick={this.handleAnswer}> False </button>
           	</div>
         );

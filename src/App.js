@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MathQuestion from './MathQuestion.js';
-import UserScore from './MathQuestion.js';
+import UserScore from './UserScore.js';
 
 
 const numQuestions = 0;
@@ -35,8 +35,8 @@ render() {
         </header>
         <div className="game">
           <h2>Mental Math</h2>
-    	  <MathQuestion handleAnswer={this.handleAnswer}/>
-		  <UserScore 
+		<MathQuestion />  
+  		<UserScore 
 			numCorrect={this.state.correctAnswer} 
 			numQuestions={this.state.numQuestions}
 		  />

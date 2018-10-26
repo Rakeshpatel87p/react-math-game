@@ -1,7 +1,10 @@
 import React from 'react';
 
-function UserScore(props) {
-	//Your Score: {numCorrect}/{numQuestions}
-}
-
+const UserScore = props => {
+	return (
+    	<p className="text">
+      		Your score: {props.numCorrect}/{props.numQuestions}
+		</p>
+    );
+};
 export default UserScore;
